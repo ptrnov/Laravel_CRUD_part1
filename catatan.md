@@ -18,7 +18,7 @@
  
  
 ## Console/terminal/command prompt
- path/laravel_project>
+ 	- path/laravel_project>
     - Untuk Controller
 	path 	: path + app\Http\Controllers>
 	command :php artisan make:controller ContentsController
