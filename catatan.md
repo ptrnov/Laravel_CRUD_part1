@@ -7,14 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-##RUN COMPAILER Artisan
+## About Laravel
+	Catatan Singkat
+
+## RUN COMPAILER Artisan
  php artisan serve
  php artisan serve --host=Domain --port 8000
  php artisan serve --host=Localhost --port 8000
  php artisan serve --host=Public_IP --port 8000
  
  
-##console/terminal/command prompt
+## Console/terminal/command prompt
  path/laravel_project>
     - Untuk Controller
 	path 	: path + app\Http\Controllers>
@@ -25,7 +28,7 @@
 	add path model	: path + app\Http\Model>		#pindah path model.
 	commad			: php artisan make:model Content
 
-##Route 
+## Route 
   path 	: path + app\routes\>web.php
   Example	:
 	- Default Home
