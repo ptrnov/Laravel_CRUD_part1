@@ -61,3 +61,4 @@ composer dump-autoload -o
 
 ## reff
 - Form https://scotch.io/tutorials/simple-laravel-crud-with-resource-controllers
+- https://yoesuv.blogspot.com/2016/03/laravel-form-edit-dan-delete.html
