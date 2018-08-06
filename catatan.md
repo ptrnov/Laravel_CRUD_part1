@@ -53,4 +53,11 @@
   Path		: path + app\resources\views>
   Example 	: folder pdath "views\content" pemanggilan conntent.nama_file.
 	
-	
+## Vendor Cached
+php artisan cache:clear
+php artisan route:clear
+composer dump-autoload -o
+
+
+## reff
+- Form https://scotch.io/tutorials/simple-laravel-crud-with-resource-controllers

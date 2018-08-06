@@ -18,12 +18,15 @@
  
     <div class="container">
         <h2 class="page-header">List of Content</h2>
+        <a href="/contents/create">create</a>
         <table class="table table-hover">
             <thead>
             <tr>
                 <th>Title</th>
                 <th>Excerpt</th>
                 <th>Created</th>
+                <th>Updated</th>
+                <th>Delete</th>
                 <th>Updated</th>
             </tr>
             </thead>
@@ -34,6 +37,14 @@
                     <td>{{ $d->excerpt }}</td>
                     <td>{{ $d->created_at->format('d/M/Y') }}</td>
                     <td>{{ $d->updated_at->format('d/M/Y') }}</td>
+                    <td>
+                        <!-- <form action="{{url('contents/ubah', $d->id) }}" method="get"> -->
+                            <!-- {{ csrf_field() }}
+                            {{ method_field('DELETE') }} -->
+                            <a href="/contents/show/{{$d->id}}" class=" btn btn-sm btn-primary">Edit</a>
+                            <!-- <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button> -->
+                        <!-- </form> -->
+                    </td>
                 </tr>
             @endforeach
             </tbody>

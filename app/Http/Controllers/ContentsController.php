@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Model\Content;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class ContentsController extends Controller
 {
@@ -23,8 +28,9 @@ class ContentsController extends Controller
     }
     public function create(){
         return view('contents.create');
+    
     }
-
+    
     public function createDb(Request $request)
     {    
         //print_r($request);
@@ -53,5 +59,47 @@ class ContentsController extends Controller
         $passport->save();
         
         return redirect('contents')->with('success', 'Information has been added');
+    }
+
+    public function show($id){
+        //print_r('asd');
+       // return view('contents.edit');
+        $showById = Content::find($id);
+        //return view('contents.edit', compact('showById'));
+        return view::make('contents.edit')
+            ->with('showById', $showById);
+    }
+    public function update($id){
+        //print_r('asd');
+       // return view('contents.edit');
+        // $showById = Content::find($id);
+        // //return view('contents.edit', compact('showById'));
+        // return view::make('contents.edit')
+        //     ->with('showById', $showById);
+
+            $rules = array(
+                'title'       => 'required'
+            );
+            $validator = Validator::make(Input::all(), $rules);
+    
+            // process the login
+            if ($validator->fails()) {
+                return Redirect::to('contents/show/' . $id  )
+                    ->withErrors($validator)
+                    ->withInput(Input::except('title'));
+            } else {
+                // store
+                $nerd = Content::find($id);
+                $nerd->title       = Input::get('title');
+                // $nerd->email      = Input::get('email');
+                // $nerd->nerd_level = Input::get('nerd_level');
+                $nerd->save();
+    
+                // redirect
+                Session::flash('message', 'Successfully updated contents!');
+                return Redirect::to('contents');
+            }
+
+
     }
 }

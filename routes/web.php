@@ -19,7 +19,10 @@ Route::get('halo', function(){
     return 'Hello world! Halo semuanya, selamat belajar Laravel.';
 });
 //Route::get('contents', 'ContentsController@index');
-//Route::resource('contents','ContentsController');
+// Route::resource('contents','ContentsController');
 Route::get('contents', 'ContentsController@index'); 
 Route::get('contents/create', 'ContentsController@create'); 
 Route::post('contents/createDb', 'ContentsController@createDb'); 
+
+Route::get('contents/show/{id}', 'ContentsController@show'); 
+Route::PUT('contents/update/{id}', 'ContentsController@update'); 
